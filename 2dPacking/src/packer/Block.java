@@ -4,7 +4,7 @@ public class Block
 {
 	private int w;
 	private int h;
-	Node fit;
+	private int id;
 	
 	public Block(int width, int height)
 	{
@@ -27,13 +27,14 @@ public class Block
 	{
 		this.h = h;
 	}
-	public Node getFit()
+	
+	public int getId()
 	{
-		return fit;
+		return id;
 	}
-	public void setFit(Node fit)
+	public void setId(int id)
 	{
-		this.fit = fit;
+		this.id = id;
 	}
 	
 	@Override

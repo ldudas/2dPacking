@@ -9,6 +9,7 @@ public class Node
 	private boolean used;
 	private Node right;
 	private Node down;
+	private Block block;
 	
 	public Node()
 	{
@@ -32,6 +33,19 @@ public class Node
 		down = null;
 	}
 	
+	public Node(Node node)
+	{
+		this.x = node.x;
+		this.y = node.y;
+		this.h= node.h;
+		this.w = node.w;
+		this.used = node.used;
+		this.block = node.block;
+		
+		if(node.right!=null) this.right = new Node(node.right);
+		if(node.down!=null) this.down = new Node(node.down);
+	}
+
 	public int getX()
 	{
 		return x;
@@ -87,6 +101,16 @@ public class Node
 	public void setDown(Node down)
 	{
 		this.down = down;
+	}
+
+	public Block getBlock()
+	{
+		return block;
+	}
+
+	public void setBlock(Block block)
+	{
+		this.block = block;
 	}
 
 }
