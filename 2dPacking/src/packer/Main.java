@@ -22,21 +22,22 @@ public class Main
 		Comparator<Block> comparator =  (Block b1,Block b2) -> new Integer(Math.max(b2.getW(), b2.getH())).compareTo(Math.max(b1.getW(), b1.getH()));
 	    Arrays.sort(blocks, comparator);
 	    
-	    for(int i=0;i<blocks.length;i++)
+	    
+	    for(int i=0;i<blocks.length;i++) //ustawianie id/kolejnoœci w pd
 	    {
 	    	blocks[i].setId(i+1);
 	    }
 	    
-	    Packer packer = new Packer(Integer.MAX_VALUE,Integer.MAX_VALUE);
+	    Packer packer = new Packer();
 	    packer.fit(blocks);
-	    ArrayList<Node> minNodes = packer.findRootsWithMinArea();
+	    ArrayList<Node> minRoots = packer.findRootsWithMinArea();
 	    int index=1;
-	    for(Node n:minNodes)
+	    for(Node n:minRoots) //dla kazdego korzenia z minimalna powierzchnia
 	    {
 	    	HashMap<Integer,Pair<Integer>> decisions = new HashMap<>();
-	    	packer.getDecisions(n,decisions);
+	    	packer.getDecisions(n,decisions); //pobierz ci¹g decyzji w pd
 	    	System.out.println("Min ci¹g decyzji nr: "+index);
-	    	for(int j=1;j<=decisions.size();j++)
+	    	for(int j=1;j<=decisions.size();j++) //wypisz decyzje
 	    	{
 	    		Pair<Integer> decision = decisions.get(j);
 	    		System.out.println(j+": ("+blocks[j-1].getW()+","+blocks[j-1].getH()+"): "+decision.getFirst()+","+decision.getSecond());

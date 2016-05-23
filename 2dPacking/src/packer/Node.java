@@ -1,15 +1,19 @@
 package packer;
 
+/**
+ * Wêze³ drzewa konstuowanego w algorytmie ustawiania bloków na p³aszczyŸnie
+ * Reprezentuje obszar na p³aszczyŸnie
+ */
 public class Node
 {
-	private int x;
-	private int y;
-	private int w;
-	private int h;
-	private boolean used;
-	private Node right;
-	private Node down;
-	private Block block;
+	private int x; //wsp. x pocz¹tku obszaru
+	private int y; //wsp. y pocz¹tku obszaru
+	private int w; //szerokoœæ obszaru
+	private int h; //wysokoœæ obszaru
+	private boolean used; // czy w obszarze znajduje siê prostok¹t/blok
+	private Node right; //pole na prawo (powstaje kiedy used==true)
+	private Node down; //pole na dole (powstaje kiedy used==true)
+	private Block block; //blok zajmuj¹cy obszar (!=null kiedy used==true)
 	
 	public Node()
 	{

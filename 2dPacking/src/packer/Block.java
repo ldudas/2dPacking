@@ -1,15 +1,19 @@
 package packer;
 
+/**
+ * Blok/prostok¹t umieszczany na p³aszczyŸnie
+ */
 public class Block
 {
-	private int w;
-	private int h;
-	private int id;
+	private int w; //szerokoœæ
+	private int h; //wysokoœæ
+	private int id; //numer bloku / numer kroku programowania dynamicznego w ktorym bedzie on ustawiany na plaszczyznie
 	
 	public Block(int width, int height)
 	{
 		w=width;
 		h=height;
+		id = -1;
 	}
 	public int getW()
 	{
